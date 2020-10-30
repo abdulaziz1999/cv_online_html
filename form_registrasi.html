@@ -39,26 +39,26 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">First Name</label>
-                                    <input class="input--style-4" type="text">
+                                    <input class="input--style-4" type="text" name="nama_depan">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Last Name</label>
-                                    <input class="input--style-4" type="text">
+                                    <input class="input--style-4" type="text" name="nama_belakang">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Place Of Birth</label>
-                                    <input class="input--style-4" type="text">
+                                    <input class="input--style-4" type="text" name="tmp_lahir">
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Date Of Birth</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4 js-datepicker" type="text">
+                                        <input class="input--style-4 js-datepicker" type="text" name="tgllahir">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
@@ -68,11 +68,11 @@
                                     <label class="label">Gender</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Male
-                                            <input type="radio" checked="checked" name="gender">
+                                            <input type="radio" checked="checked" name="male">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Female
-                                            <input type="radio" name="gender">
+                                            <input type="radio" name="female">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -85,7 +85,7 @@
                                 <div class="input-group">
                                     <label class="label">Nohadphone</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="number">
+                                        <input class="input--style-4" type="number" name="nohp">
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                                 <div class="input-group">
                                     <label class="label">Email</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="email">
+                                        <input class="input--style-4" type="email" name="email">
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                 <div class="input-group">
                                     <label class="label">Country</label>
                                     <div class="input-group-icon">
-                                        <input class="input--style-4" type="text">
+                                        <input class="input--style-4" type="text" name="kota">
                                         <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
                                 <div class="input-group">
                                     <label class="label">Alamat Rumah</label>
                                     <div class="input-group-icon">
-                                        <textarea name="" id="" cols="70" rows="10"></textarea>
+                                        <textarea name="alamat" id="" cols="70" rows="10"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -128,15 +128,15 @@
                                     <label class="label">Dapat Info</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">Koran
-                                            <input type="radio" checked="checked" name="gender">
+                                            <input type="radio" checked="checked" name="koran">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container m-r-45">Sosial Media
-                                            <input type="radio" name="gender">
+                                            <input type="radio" name="sosmed">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Poster
-                                            <input type="radio" name="gender">
+                                            <input type="radio" name="poster">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
@@ -148,7 +148,7 @@
                             <div class="col-12">
                                 <div class="input-group">
                                     <label class="label">Asal Sekolah</label>
-                                    <input class="input--style-4" type="text">
+                                    <input class="input--style-4" type="text" name="asal_sekolah">
                                 </div>
                             </div>
                             <div class="input-group">
@@ -156,9 +156,9 @@
                                 <div class="rs-select2 js-select-simple select--no-search">
                                     <select name="subject">
                                         <option disabled="disabled" selected="selected">Choose option</option>
-                                        <option>2017/2018</option>
-                                        <option>2018/2019</option>
-                                        <option>2019/2020</option>
+                                        <option value="2017/2018">2017/2018</option>
+                                        <option value="2018/2019">2018/2019</option>
+                                        <option value="2019/2020">2019/2020</option>
                                     </select>
                                     <div class="select-dropdown"></div>
                                 </div>
@@ -168,15 +168,15 @@
                                     <label class="label">Jurusan</label>
                                     <div class="p-t-10">
                                         <label class="radio-container m-r-45">IPA
-                                            <input type="radio" checked="checked" name="gender">
+                                            <input type="radio" checked="checked" name="IPA">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container m-r-45">IPS
-                                            <input type="radio" name="gender">
+                                            <input type="radio" name="IPS">
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="radio-container">Teknik
-                                            <input type="radio" name="gender">
+                                            <input type="radio" name="Tenik">
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>
