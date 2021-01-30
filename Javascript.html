@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div#formValidation {
+        width: 600px;
+        height: 300px;
+        border-color: red;
+        border-radius: 1em;
+        border-width: 5px;
+        border-style: solid;
+        padding: 100px 10px 0px 0px;
+    }
+
+    div#formLogin {
+        width: 600px;
+        height: 300px;
+        border-color: red;
+        border-radius: 1em;
+        border-width: 5px;
+        border-style: solid;
+        padding: 100px 10px 0px 0px;
+    }
+
+    img#views {
+        border-color: coral;
+        border-radius: 1em;
+        border-width: 5px;
+        border-style: solid;
+        padding: 5px;
+        width: 600px;
+        height: 500px;
+    }
+
+    #displayForm {
+        border-color: coral;
+        border-radius: 1em;
+        border-width: 5px;
+        border-style: solid;
+        padding: 5px;
+        width: 600px;
+        height: 500px;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+
+    .chat-box {
+        font: normal normal 11px/1.4 Tahoma, Verdana, Sans-Serif;
+        color: #333;
+        width: 225px;
+        margin-bottom: 10px;
+        /* Chatbox width */
+        border: 1px solid #344150;
+        border-bottom: none;
+        background-color: white;
+        position: fixed;
+        right: 10px;
+        bottom: 0;
+        z-index: 9999;
+        -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+        -moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    }
+
+    .chat-box>input[type="checkbox"] {
+        display: block;
+        margin: 0 0;
+        padding: 0 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 26px;
+        z-index: 4;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+    .chat-box>label {
+        display: block;
+        height: 24px;
+        line-height: 24px;
+        background-color: #36c70a;
+        color: white;
+        font-weight: bold;
+        padding: 0 1em 1px;
+    }
+
+    .chat-box>label:before {
+        content: attr(data-collapsed)
+    }
+
+    .chat-box .chat-box-content {
+        /* padding:10px; */
+        display: none;
+    }
+
+    /* hover state */
+    .chat-box>input[type="checkbox"]:hover+label {
+        background-color: #36c70a
+    }
+
+    /* checked state */
+    .chat-box>input[type="checkbox"]:checked+label {
+        background-color: #36c70a
+    }
+
+    .chat-box>input[type="checkbox"]:checked+label:before {
+        content: attr(data-expanded)
+    }
+
+    .chat-box>input[type="checkbox"]:checked~.chat-box-content {
+        display: block
+    }
+
+    #isiPesan {
+        float: left;
+        width: 64%;
+    }
+
+    #p1 span {
+        background: aqua;
+        margin-right: 5px;
+        border-radius: 3px;
+        padding: 2px 5px
+    }
+
+    #isiPesan1 {
+        float: right;
+        width: 64%;
+    }
+
+    #p2 span {
+        background: orange;
+        margin-left: 5px;
+        border-radius: 3px;
+        padding: 2px 5px
+    }
+
+    div#InputChat {
+        width: 100%;
+    }
+</style>
+<script>
+    function animal() {
+        let x = document.getElementById("namaHewan").value;
+        document.getElementById("display").innerHTML = "<img id='views' src='gambarhewan/" + x + "'>";
+
+        setTimeout(function () { alert("Ini Gambar " + x); }, 1000);
+    }
+
+    function valutaAsing() {
+        let nilaiInput = document.getElementById("input_nominal").value;
+        let nilaiValas = document.getElementById("valas").value;
+        let kursDollarUs = 9915;
+        let kursDollarSgr = 13472;
+        let kursRinggitMly = 874;
+        let kursYenJpg = 120;
+        let kursEuro = 15888;
+        let kursRiyalArab = 3592;
+
+        if (nilaiValas == 'dollar_us') {
+            hasilKurs = nilaiInput * kursDollarUs;
+        } else if (nilaiValas == 'dollar_sgr') {
+            hasilKurs = nilaiInput * kursDollarSgr;
+        } else if (nilaiValas == 'ringgit_mly') {
+            hasilKurs = nilaiInput * kursRinggitMly;
+        } else if (nilaiValas == 'yen_jpg') {
+            hasilKurs = nilaiInput * kursYenJpg;
+        } else if (nilaiValas == 'euro') {
+            hasilKurs = nilaiInput * kursEuro;
+        } else if (nilaiValas == 'riyal_arab') {
+            hasilKurs = nilaiInput * kursRiyalArab;
+        } else {
+            hasilKurs = "";
+        }
+
+        document.getElementById("kurs_rupiah").innerHTML = "Rp. " + hasilKurs;
+    }
+
+    function otentikasi() {
+        let userName = document.getElementById("username").value;
+        let passWord = document.getElementById("password").value;
+        let user = 'aziz1999';
+        let pass = 'qwerty';
+        if (userName == user && passWord == pass) {
+            alert('Selamat Anda Berhasil Login');
+            // window.location.href = '';
+        } else if (userName == "" || passWord == "") {
+            alert('Tolong Input Username dan Password Salah');
+        }
+        else {
+            alert('Username dan Password Salah');
+        }
+    }
+
+    function send() {
+        let pesan = document.getElementById("pesan").value;
+        let node = document.createElement("LI");
+        let textnode = document.createTextNode(pesan);
+        node.appendChild(textnode);
+        document.getElementById("isiPesan").appendChild(node);
+
+        if (pesan == "hai") {
+            let node = document.createElement("p");
+            let textnode = document.createTextNode("Hai Juga");
+            node.appendChild(textnode);
+            setTimeout(function () { document.getElementById("isiPesan").appendChild(node); }, 3000);
+
+        }
+    }
+
+    function simpan() {
+        let namaPel = document.getElementById("nama").value;
+        let emailPel = document.getElementById("email").value;
+        let jamBerangkat = document.getElementById("jamBerangkat").value;
+        let tujuanBerangkat = document.getElementById("tujuanBerangkat").value;
+        let jumlahTiket = document.getElementById("jumlahTiket").value;
+        document.getElementById("displayForm").innerHTML = "Nama : " + namaPel + "<br>" + "Email : " + emailPel + "<br>" + "Jam Berangkat : " + jamBerangkat + "<br>" + "Tujuan Berangkat : " + tujuanBerangkat + "<br>" + "Jumlah Tiket : " + jumlahTiket + "<br>";
+    }
+
+
+</script>
+
+<body>
+
+    <!-- Form Login -->
+    <div id="formLogin" align="center">
+        <label for="login"> Form Login</label>
+        <br><br>
+        <form id="forLogin">
+            <input type="text" id="username" placeholder="Masukan Username">
+            <br><br>
+            <input type="password" id="password" placeholder="Masukan Password">
+            <br><br>
+            <button onclick="otentikasi()">Login</button>
+        </form>
+    </div>
+
+    <br>
+    <hr>
+
+    <!-- Kurs Mata Uang -->
+    <table>
+        <tr>
+            <th>Masukan Nilai</th>
+            <th>Valas</th>
+            <th>Nilai Rupiah</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="number" id="input_nominal" onchange="valutaNominal()">
+            </td>
+            <td>
+                <select id="valas" onchange="valutaAsing()">
+                    <option disabled selected>Pilih Kurs</option>
+                    <option value="dollar_us">Dollar US</option>
+                    <option value="dollar_sgr">Dollar Singapore</option>
+                    <option value="ringgit_mly">Ringgit Malaysia</option>
+                    <option value="yen_jpg"> Yen Jepan</option>
+                    <option value="euro">Euro</option>
+                    <option value="riyal_arab">Riyal Arab Saudi</option>
+                </select>
+            </td>
+            <td>
+                <div id="kurs_rupiah"></div>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <!-- Chatbox -->
+    <div class="chat-box">
+        <input type="checkbox">
+        <label data-expanded="Close Chatbox" data-collapsed="Open Chatbox"></label>
+        <div class="chat-box-content">
+            <p>Selamat Datang </p>
+            <div id="isiPesan"></div>
+            <div id="isiPesan1"></div>
+            <div id="InputChat">
+                <input type="text" id="pesan" placeholder="Kirim Pesan">
+                <button onclick="send()">Kirim</button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <hr>
+
+    <!-- Gambar Hewan -->
+    <label for="judul">Silahkan Pilih Nama Hewan</label> <br>
+    <select id="namaHewan" onchange="animal()">
+        <option disabled selected>Pilih Nama Hewan</option>
+        <option value="jerapah.png">Jerapah</option>
+        <option value="singa.png">Singa</option>
+        <option value="harimau.png">Harimau</option>
+        <option value="hiu.png">Hiu</option>
+        <option value="kura-kura.png">Kura-kura</option>
+        <option value="pinguin.png">Pinguin</option>
+        <option value="gajah.png">Gajah</option>
+        <option value="naga.png">Naga</option>
+        <option value="phoenix.png">Phoenix</option>
+        <option value="cheetah.png">Cheetah</option>
+    </select>
+
+    <div id="display"></div>
+    <br>
+    <hr>
+
+    <div id="formValidation" align="center">
+        <label for="login"> Form Validation</label>
+        <br><br>
+        <!-- <form id="forLogin"> -->
+        <input type="text" id="nama" placeholder="Nama Pelanggan" required>
+        <br><br>
+        <input type="email" id="email" placeholder="Masukan Email" required>
+        <br><br>
+        <input type="time" id="jamBerangkat" placeholder="Jam Keberangkatan" required>
+        <br><br>
+        <input type="text" id="tujuanBerangkat" placeholder="Tujuan Keberangkatan" required>
+        <br><br>
+        <input type="number" id="jumlahTiket" placeholder="Jumlah Tiket" required>
+        <br><br>
+        <button onclick="simpan()">Simpan</button>
+        <!-- </form> -->
+    </div>
+
+    <div id="displayForm"></div>
+
+</body>
+
+</html>
